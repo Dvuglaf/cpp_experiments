@@ -177,7 +177,7 @@ public:
 			return;
 
 		sz = cap = dst;
-		arr = allocator_traits::allocate(alloc, sz);
+		arr = allocator_traits::allocate(alloc, cap);
 
 		for (size_t i = 0; i < sz; ++i, ++first) {
 			try {
@@ -207,7 +207,7 @@ public:
 		cap = other.cap;
 		alloc = other.alloc;
 
-		arr = allocator_traits::allocate(alloc, sz);
+		arr = allocator_traits::allocate(alloc, cap);
 		for (size_t i = 0; i < sz; ++i) {
 			try {
 				allocator_traits::construct(alloc, arr + i, other.arr[i]);
